@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "767038fd-1eb4-4e8f-9065-03139eeefb62",
+		"name": "Flip Take Home Test",
+		"description": "# About this collection\n\nThis collection helps you set up contract tests to ensure that two separate systems are compatible and can communicate with one another.\n\n## **Using the collection**\n\n**Step 1:** Send the sample requests and view the response and test results.\n\n**Step 2:** Replace the sample request URLs with your desired API endpoints.\n\n**Step 3:** Customize the tests in the \"Tests\" tab if needed. Don't forget to save your changes.\n\n### Resources\n\n[Scripting in Postman](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/)\n\n[Test script examples](https://learning.postman.com/docs/writing-scripts/script-references/test-examples/)\n\n[Postman Sandbox API reference](https://learning.postman.com/docs/sending-requests/grpc/postman-sandbox-api/#writing-assertions)\n\n[Using the Collection Runner](https://learning.postman.com/docs/collections/running-collections/intro-to-collection-runs/)\n\n[  \n](https://postman.postman.co/documentation/24552533-5bead607-0197-4e1d-87d4-3160bc7631c1?entity=&branch=&version=)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21587555"
+	},
+	"item": [
+		{
+			"name": "Get todos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/todos?per_page=10",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"todos"
+					],
+					"query": [
+						{
+							"key": "per_page",
+							"value": "10"
+						}
+					]
+				},
+				"description": "The tests in this request validate that:\n\n- the response code is 200\n- the response is a JSON object\n- the response has an 'arg' object\n- the response has 'headers' object\n- the response has a 'URL' property"
+			},
+			"response": []
+		},
+		{
+			"name": "Get user with status inactive",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validate that status is inactive\", function () {",
+							"     var responseBody = pm.response.json();",
+							"     pm.expect(responseBody).to.be.an('array');",
+							"     responseBody.forEach((user) => {",
+							"            pm.expect(user.status).to.equal('inactive');",
+							"     });",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users?page=1&status=inactive",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "status",
+							"value": "inactive"
+						}
+					]
+				},
+				"description": "The tests in this request validate that:\n\n- the response code is 200\n- the response is a JSON object\n- the response has an 'arg' object\n- the response has 'headers' object\n- the response has a 'URL' property"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://postman-echo.com"
+		}
+	]
+}
