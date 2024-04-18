@@ -6,12 +6,12 @@ This repository contains a Postman collection designed to answer the take home t
 
 Below is an explanation of the API test for each scenario
 1. Get todos, make sure it shows only 10 items
-   To get endpoint 'todos' and shows only 10 item, i just adding query param (based on the doc) '?per_page=10'
-3. Get users with status inactive, make sure it shows correct data
-   To get users with inactive status, i just adding query param as well '?page=1&status=inactive' and to make sure it shows correct data,
-   i add a validation in test script to make sure that all of the response have a 'inactive' status.
+To get endpoint 'todos' and shows only 10 item, i just adding query param (based on the doc) '?per_page=10'
 
-   I also add 'newman test' to github action workflow if we want to run this test in repo
+2. Get users with status inactive, make sure it shows correct data
+To get users with inactive status, i just adding query param as well 'page=1&status=inactive' and to make sure it shows correct data, i add a validation in test script to make sure that all of the response have a 'inactive' status.
+
+I also add 'newman test' to github action workflow and also html report if we want to run this test in repo
 
 
 ## GitHub Actions Workflow: Newman Tests
