@@ -14,6 +14,19 @@ To get users with inactive status, i just adding query param as well 'page=1&sta
 I also add 'newman test' to github action workflow and also html report if we want to run this test in repo
 
 
+## How to Run the Tests
+
+### Option 1: Run from Postman
+1. Download the `.json` file containing the Postman collection.
+2. Import the collection into your Postman.
+3. Run the collection.
+
+### Option 2: Run from GitHub
+1. Open GitHub Actions in the repository.
+2. Choose the appropriate workflow.
+3. Click on "Re-run all jobs" to execute the tests.
+
+
 ## GitHub Actions Workflow: Newman Tests
 
 This workflow is set up to run on every `push` or `pull_request` event. It performs the following actions:
