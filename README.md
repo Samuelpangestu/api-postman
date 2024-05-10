@@ -1,6 +1,6 @@
-# Flip Take Home Test Collection
 
-This repository contains a Postman collection designed to answer the take home test Flip. Additionally, it includes GitHub Actions workflows to automate running these tests.
+
+This repository contains a Postman collection designed to answer the take home test. Additionally, it includes GitHub Actions workflows to automate running these tests.
 
 ## About the Postman Collection
 
